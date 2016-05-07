@@ -1,0 +1,116 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = ru_RU
+% !TeX program = xelatex
+
+\documentclass{beamer}
+
+\usepackage{fontspec}
+\usepackage{polyglossia} % поддержка языков (вместо babel)  
+
+\setdefaultlanguage[spelling=modern]{russian} 
+\setkeys{russian}{babelshorthands=true}
+
+\setotherlanguage{english}
+\defaultfontfeatures{Renderer=Basic, Ligatures=TeX} %лигатуры работают в basic режиме
+
+
+% babel shorthands are:
+%  "--- Cyrillic emdash in plain text.
+%  "--~ Cyrillic emdash in compound names (surnames).
+%  "--* Cyrillic emdash for denoting direct speech.
+% "~ неразрывный дефис. Пример: как в 90"~х годах
+
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+\newfontfamily{\cyrillicfonttt}{Courier New} 
+
+
+\author{Илья Кочергин}
+\date{\today}
+
+\title{Просто презентация}
+\begin{document}
+	
+\begin{frame}
+	\titlepage
+\end{frame}	
+
+%\begin{frame}
+%\frametitle{первый слайд}
+%Легко сделать список
+%\begin{itemize}
+%	\item pdf\LaTeX{}  "--- самый быстрый
+%	\item  \XeLaTeX{} "--- использует OpenType шрифты
+%	\item Lua\LaTeX{} "--- позволяет включать программный  код Lua
+%\end{itemize}
+
+\begin{frame}
+	
+\frametitle{Не забыть купить}
+
+
+Продукты:
+
+\begin{enumerate}
+	\item Сыр
+	\item Масло
+	\item Кефир
+\end{enumerate}
+
+Хозтовары
+
+\begin{enumerate}
+	\item Сырорезка
+	\item Машинное Масло
+	\item Кувалда
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+	
+	\frametitle{Не забыть купить 2}
+\begin{columns}	
+
+	
+
+	\column{.4\textwidth}
+	
+	Продукты:
+	
+	\begin{enumerate}
+		\item Сыр
+		\item Масло
+		\item Кефир
+	\end{enumerate}
+
+\column{.6\textwidth}
+
+	Хозтовары
+	
+	\begin{enumerate}
+		\item Сырорезка
+		\item Машинное Масло
+		\item Кувалда
+	\end{enumerate}
+\end{columns}	
+	
+\end{frame}
+
+\begin{frame}[fragile]
+	Выключная формула (display)
+		\[ F=\frac{M}{V^2_i} \]
+
+Код \LaTeX:
+		
+	\begin{verbatim}
+	\[ F=\frac{M}{V^2_i} \]
+		
+	\end{verbatim}
+\end{frame}
+
+
+\end{document}
+

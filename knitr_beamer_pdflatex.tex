@@ -31,8 +31,9 @@
 \title{LaTeX+R=Документ Knitr}
 \author{Илья Кочергин}
 \institute{кафедра экономической информатики ЭФ МГУ} 
+\usepackage{Sweave}
 \begin{document}
-\SweaveOpts{concordance=TRUE}
+\input{knitr_beamer_pdflatex-concordance}
 \begin{frame}
 
 \titlepage
@@ -52,7 +53,7 @@
 \begin{frame}
 	\frametitle{Необходимость согласовывать и корректировать}
 \begin{itemize}
-\item 	Договоры \Sexpr{2+2}
+\item 	Договоры 4
 \item 	Тексты учебных программ
 \item 	Дипломные работы 
 \item 	Создание коллективного  труда
@@ -62,15 +63,14 @@
 
 \begin{frame}[fragile]
 \frametitle{Второй слайд с кодом R}    
-<<setup, warning=FALSE,echo=F>>=
-  library(ggplot2)
-@
 
-<<lala, dev="cairo_pdf",message=FALSE,warning=FALSE,  out.width='0.4\\textwidth',  fig.align='center',fig.asp=1>>=
-  ggplot(mapp=aes(x=c(0,6)))+
-  stat_function(fun = sin)+
-  ggtitle("Привет!")
-@
+\begin{Schunk}
+\begin{Sinput}
+>   ggplot(mapp=aes(x=c(0,6)))+
++   stat_function(fun = sin)+
++   ggtitle("Привет!")
+\end{Sinput}
+\end{Schunk}
 
 \end{frame}
 
