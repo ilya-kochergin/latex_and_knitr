@@ -1,0 +1,20 @@
+\frametitle{Второй слайд с кодом R}
+
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+  \hlkwd{ggplot}\hlstd{(}\hlkwc{mapp}\hlstd{=}\hlkwd{aes}\hlstd{(}\hlkwc{x}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{,}\hlnum{6}\hlstd{)))}\hlopt{+}
+  \hlkwd{stat_function}\hlstd{(}\hlkwc{fun} \hlstd{= sin)}\hlopt{+}
+  \hlkwd{ggtitle}\hlstd{(}\hlstr{"Привет!"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+
+{\centering \includegraphics[width=0.4\textwidth]{figure/lala-1}
+
+}
+
+
+
+\end{knitrout}
+

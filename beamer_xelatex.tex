@@ -1,0 +1,92 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = ru_RU
+% !TeX program = xelatex
+
+
+\documentclass{beamer}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+\setdefaultlanguage{russian}
+
+
+
+  
+\author{Илья Кочергин}
+\title{Пробный документ}
+\date{\today}
+\institute[кафедра ЭИ]{кафедра Экономической информатии }
+
+\usetheme{Luebeck}
+\begin{document}
+ 
+ \begin{frame}
+ 	\titlepage
+\end{frame}
+ 
+\begin{frame}
+\frametitle{Виды \alert{компиляторов} \LaTeX{} в PDF:}
+
+\begin{itemize}
+\item Старый
+    \begin{itemize}
+     	\item pdflatex
+     \end{itemize}
+\item Новые:
+     \begin{itemize}
+     	\item xelatex
+     	\item lualatex
+     \end{itemize}
+	
+\end{itemize}
+	
+\end{frame}  
+  
+ \begin{frame}
+ 	\frametitle{There Is No Largest Prime Number}
+ 	\framesubtitle{The proof uses \textit{reductio ad absurdum}.}
+ 	\begin{theorem}
+ 		There is no largest prime number.
+ 	\end{theorem}
+ 	\begin{proof}
+ 		\begin{enumerate}
+ 			\item<1-| alert@1> Suppose $p$ were the largest prime number.
+ 			\item<2-> Let $q$ be the product of the first $p$ numbers.
+ 			\item<3-> Then $q+1$ is not divisible by any of them.
+ 			\item<1-> But $q + 1$ is greater than $1$, thus divisible by some prime
+ 			number not in the first $p$ numbers.\qedhere
+ 		\end{enumerate}
+ 	\end{proof}
+ \end{frame} 
+
+
+\begin{frame}
+	\frametitle{По колонкам}
+	\begin{columns}[t]
+		\begin{column}{0.5\textwidth}
+			\scriptsize
+			
+			
+			Видео предоставляет прекрасную возможность подтвердить свою точку зрения. Чтобы вставить код внедрения для видео, которое вы хотите добавить, нажмите "Видео в сети".Вы также можете ввести ключевое слово, чтобы найти в Интернете видео, которое лучше всего подходит для вашего документа.
+				
+						\medskip
+			Чтобы придать документу профессиональный вид, воспользуйтесь доступными в Word макетами верхних и нижних колонтитулов, титульной страницы и текстовых полей, которые дополняют друг друга. 
+			
+			Например, вы можете добавить подходящую титульную страницу, верхний колонтитул и боковое примечание. Откройте вкладку "Вставка" и выберите нужные элементы из различных коллекций.
+	\end{column}
+	\begin{column}{0.5\textwidth}
+				Темы и стили также помогают придать документу единообразный вид. Если на вкладке "Конструктор" выбрать другую тему, то изображения, диаграммы и графические элементы SmartArt изменятся соответствующим образом.При применении стилей заголовки изменяются в соответствии с новой темой.
+			
+			Новые кнопки, которые видны, только если они действительно нужны, экономят время при работе в Word.Чтобы изменить расположение рисунка в документе, щелкните его, и рядом с ним появится кнопка для доступа к параметрам разметки. При работе с таблицей щелкните то место, куда нужно добавить строку или столбец, и щелкните знак "плюс".
+			
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\end{document}
