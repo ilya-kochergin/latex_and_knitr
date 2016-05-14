@@ -17,7 +17,6 @@
     \setsansfont{Arial}
     \setmonofont{Courier New}
     
-    \listfiles
     \newfontfamily{\cyrillicfont}{Times New Roman}
     \newfontfamily{\cyrillicfontrm}{Times New Roman}
     \newfontfamily{\cyrillicfontsf}{Arial}
@@ -29,8 +28,11 @@
 \newtheorem{theorem}{Теорема}
 
 \usepackage{tikz}
+\usepackage{tkz-graph}
 
 \usetikzlibrary{shapes,calc,positioning,graphs, arrows,patterns,through,fadings,mindmap}
+
+\listfiles 
 
 
 \begin{document}
@@ -104,12 +106,10 @@ y radius = 3mm %
                 "Нет, не трогал" -> "Тогда\dots{} не знаю\dots{}" [совет] 
                 ,
                 "Трогал" -> "Верни все, как было!" [совет]
-                }
+                } 
                 } -> 
-                Успокойся! [совет]
-                };
-                \end{tikzpicture}
-
+              Успокойся! [совет]                 };
+  \end{tikzpicture}
 \caption{Визуализация графов}
 \end{figure}
 
