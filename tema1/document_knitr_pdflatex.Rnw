@@ -1,0 +1,54 @@
+% !TeX spellcheck = ru_RU
+% !TeX encoding = UTF-8
+% !TeX program = pdflatex
+
+
+
+\documentclass[a4paper]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+  
+\author{Илья Кочергин}
+\title{Пробный документ}
+\date{\today}
+
+
+\begin{document}
+  \maketitle
+  
+  
+  Значение $\sin \frac{\pi}{3}=$ \Sexpr{sin(pi/3)}
+  
+  
+  
+  {
+    \sffamily
+    Рубленый текст	
+  }
+  
+  {\ttfamily
+  текст напечатан на машинке	
+  }
+  
+<<lala, dev="cairo_pdf",message=FALSE,warning=FALSE,  out.width='0.4\\textwidth',  
+fig.align='center',fig.asp=1>>=
+library(ggplot2)
+ggplot(mapp=aes(x=c(0,6)))+
+  stat_function(fun = sin)+
+  ggtitle("Привет!")
+@
+
+  
+  \[ M=\frac{V}{F} \]
+  
+ $$ M=\frac{V^{24}}{F_{ij}} $$
+ 			
+ 
+    	\begin{verbatim}
+    		$$ M=\frac{V^2}{F_{ij} $$
+    	\end{verbatim}  
+
+\end{document} 
+ 

@@ -1,0 +1,30 @@
+\documentclass{article}
+
+\usepackage{listings}
+\usepackage{color}
+
+\renewcommand\lstlistingname{Исходный текст} % Change language of section name
+
+\lstset{ % General setup for the package
+	language=[LaTeX]TeX,
+	basicstyle=\small\sffamily,
+	numbers=left,
+ 	numberstyle=\tiny,
+	frame=tb,
+	tabsize=4,
+	columns=fixed,
+	showstringspaces=false,
+	showtabs=false,
+	keepspaces,
+	commentstyle=\color{red},
+	keywordstyle=\color{blue}
+}
+
+\begin{document}
+\begin{lstlisting}
+    \begin{displaymath}
+        \left(\frac{x+1}{x-1}\right)
+    \end{displaymath}
+
+\end{lstlisting}
+\end{document}

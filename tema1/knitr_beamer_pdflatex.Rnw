@@ -62,6 +62,7 @@
 
 \begin{frame}[fragile]
 \frametitle{Второй слайд с кодом R}    
+<<<<<<< HEAD
 <<setup, warning=FALSE,echo=F>>=
   library(ggplot2)
 @

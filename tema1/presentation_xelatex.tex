@@ -1,0 +1,142 @@
+% !TeX spellcheck = ru_RU
+% !TeX encoding = UTF-8
+% !TeX program = xelatex
+
+
+
+\documentclass{beamer}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+\newfontfamily{\cyrillicfonttt}{Courier New}
+\setdefaultlanguage{russian}
+
+
+\usetheme{Luebeck}
+  
+\author{Илья Кочергин}
+\title{Пробный документ}
+\date{\today}
+\institute{экономический факультет МГУ}
+
+\begin{document}
+  
+\begin{frame}
+ \titlepage	
+\end{frame}  
+
+\begin{frame}[fragile]
+\frametitle{Формула}
+ $$ M=\frac{V^{24}}{F_{ij}} $$
+	Её код \LaTeX{}:
+	\begin{verbatim}
+	$$ M=\frac{V^2}{F_{ij} $$
+	\end{verbatim}	
+	
+\end{frame}  
+
+\begin{frame}
+	\frametitle{списки}
+Маркированный:	
+	\begin{itemize}
+		\item Продукты
+		\item Хозтовары
+		\begin{itemize}
+			\item Для дома 
+			\item Для дачи
+		\end{itemize}
+	\end{itemize}	
+Нумерованный:
+	\begin{enumerate}
+		\item Продукты
+		\item Хозтовары
+		
+		\begin{enumerate}
+			\item Для дома 
+			\item Для дачи
+		\end{enumerate}
+		
+		
+	\end{enumerate}
+	
+\end{frame}
+\begin{frame}
+	\frametitle{списки 2 столбца}
+\begin{columns}[c]
+\begin{column}{5cm}
+	Маркированный:	
+	\begin{itemize}
+		\item Продукты
+		\item Хозтовары
+		\begin{itemize}
+			\item Для дома 
+			\item Для \alert{дачи}
+			\end{itemize}
+			\end{itemize}	
+\end{column}
+
+ \begin{column}{5cm}
+	Нумерованный:
+	\begin{enumerate}
+		\item Продукты
+		\item Хозтовары
+		
+		\begin{enumerate}
+			\item Для дома 
+			\item Для дачи
+			\end{enumerate}
+			
+			
+			\end{enumerate}
+ \end{column}
+\end{columns}
+	
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{There Is No Largest Prime Number}
+	\framesubtitle{The proof uses \textit{reductio ad absurdum}.}
+	\begin{theorem}
+		There is no largest prime number.
+	\end{theorem}
+	\begin{proof}
+		\begin{enumerate}
+			\item<1-| alert@{2,4}> Suppose $p$ were the largest prime number.
+			\item<2-3> Let $\sqrt{q}$ be the product of the first $p$ numbers.
+			\item<3-> Then $q+1$ is not divisible by any of them.
+			\item<1-> But $q + 1$ is greater than $1$, thus divisible by some prime
+			number not in the first $p$ numbers.\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+	
+	
+\end{document} 
+
+
+  Привет!
+  
+  {
+    \sffamily
+    Рубленый текст	
+  }
+  
+  {\ttfamily
+  текст напечатан на машинке	
+  }
+  
+
+
+  
+  \[ M=\frac{V}{F} \]
+  
+ 			
+ 
+      
+
+ 

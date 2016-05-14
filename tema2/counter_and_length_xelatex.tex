@@ -1,0 +1,109 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+
+
+\documentclass{article}
+% \usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{minted}
+\setmainlanguage[babelshorthands=true]{russian}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+%\usepackage{calc}
+
+
+% babel shorthands are:
+%  "--- Cyrillic emdash in plain text.
+%  "--~ Cyrillic emdash in compound names (surnames).
+%  "--* Cyrillic emdash for denoting direct speech.
+% "~ unbreakable hype. Example: как в 90"~х годах
+
+\setotherlanguage{english}
+
+
+
+\setmainfont{Cambria}
+%\setromanfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+
+
+% \newfontfamily{\cyrillicfontrm}{Times New Roman}
+\newfontfamily{\cyrillicfonttt}{Courier New} 
+
+
+\begin{document}
+	Привет, \LaTeX!
+    
+    \newcommand{\txtscript}[1]{\textit{\scriptsize{}#1}}
+    
+    \[
+    \fbox{$\rho_\txtscript{молока}=\frac{M_\txtscript{молока}}{V_\txtscript{молока}}$}
+    \]
+   %  \mint{C}|for(i=0;i<10;++i) printf("%d",i) ;|
+     
+     \newcounter{nomer}
+     \renewcommand{\thenomer}{\asbuk{nomer}}
+     \setcounter{nomer}{5}
+     \Asbuk{nomer}
+     
+     \asbuk{nomer}
+     \addtocounter{nomer}{2*3}
+     \arabic{nomer}
+     \alph{nomer}
+     
+     \Roman{nomer}
+     
+     \thenomer
+     \stepcounter{nomer}
+     \thenomer \alph{nomer}
+     
+     
+     \begin{enumerate}
+     \setcounter{enumi}{10} 
+     \item пунткт \arabic{enumi}    
+     \item пунткт \arabic{enumi}
+     \item пунткт \arabic{enumi}
+     \end{enumerate}
+     
+     %     \vskip{0.1\textheight}	
+     
+ \colorlet{barcolor1}{red!20!yellow!15}
+
+ \colorlet{barcolor2}{blue!20!red!15}
+
+\newlength{\barlength}
+\setlength{\barlength}{4 cm minus 1 cm}
+\definecolor{gray50}{gray}{0.5}
+ \noindent
+  \textcolor{barcolor1}{\rule{\barlength}{1cm}}
+ \rule{\barlength}{1pt}
+ \vspace{\barlength}
+  \textcolor{barcolor2}{\rule{\barlength}{1cm}}
+  \textcolor{gray50}{\rule{\barlength}{1 cm}}
+    
+%         \begin{theorem}{О усталости}
+%         Каждый когда-нибудь устанет\ldots
+%        \end{theorem}
+		
+        
+        
+   \begin{itemize}
+    \renewcommand{\labelitemi}{$\diamondsuit$}
+       \item Пункт 
+       \item Пункт 
+       \item[$\diamond$] 
+   \end{itemize}   
+        
+    \begin{description}
+        \item[First] \hfill \\
+        The first item
+        \item[Second] \hfill \\
+        The second item
+        \item[Third] \hrulefill \\
+        The third etc \ldots
+    \end{description}    
+        
+        
+\end{document}
