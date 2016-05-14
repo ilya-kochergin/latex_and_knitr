@@ -1,0 +1,210 @@
+% !TeX encoding = UTF-8
+% !TeX program = xelatex
+
+\documentclass{article} 
+\usepackage{fontspec}
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\setlength{\parindent}{0pt}
+
+\usepackage{polyglossia}   %% загружает пакет многоязыковой вёрстки
+\setdefaultlanguage[spelling=modern]{russian}  %% устанавливает главный язык документа
+\setotherlanguage{english} %% объявляет второй язык документа
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}  %% свойства шрифтов по умолчанию
+\setmainfont[Ligatures={TeX,Historic}]{Times New Roman} %% задаёт основной шрифт документа
+
+
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+
+\newfontfamily{\cyrillicfontrm}{Times New Roman}
+\newfontfamily{\cyrillicfontsf}{Arial}
+\newfontfamily{\cyrillicfonttt}{Courier New}
+
+
+\usepackage{xcolor}
+
+\newtheorem{theorem}{Теорема}
+
+\usepackage{tikz}
+
+\usetikzlibrary{shapes,calc,positioning,graphs, arrows,patterns,through,fadings}
+
+\definecolor{myblue}{RGB}{12,131,200}
+\definecolor{myred}{RGB}{200,100,100}
+\definecolor{mydeepblue}{HTML}{1F2FAA}
+
+\colorlet{mymix}{yellow!40!magenta}
+
+\begin{document}
+  
+%\tikzset{everypicture/.style=thick, rounded corners=5}
+    
+    
+   \tikz %
+   \draw [blue] (1, 0) -- ++(1 cm , 0) -- +(0 , 1cm ) -- ++(1 cm , 0);    
+
+
+\vspace{0.5cm}
+
+\begin{tikzpicture}[color=mymix,]
+  \node(ЮгЗап) at (-1,-1) {Привет!} ;  
+   \filldraw [draw=myblue,very thick] (ЮгЗап) rectangle((5 , 2);
+   
+
+   
+  
+   
+\end{tikzpicture}    
+  
+  $ \foreach \i / \k in {1/a, 2/b, 3/c} {( \i: \k) } $
+   
+%   \foreach \i / \k in {1/a, 2/b, 3/c} {( \i: \k) }
+   
+    \foreach \i  in {1/a, 2/b, 3/c} {( \i: afa) }
+    
+    
+    
+\foreach \i in {1,2, ..., 4} {\i --} \\
+ \foreach \i in {4 , ..., 1} {\i \ $ \rightarrow $ } \\
+\foreach \i in {a, ..., d} {\i , } \\
+\foreach \i in {1, 1.5 , ..., 5.8} {-\i -} 
+
+% проверьте пакет amsmath
+ $ \foreach \i / \j in {1/a, 2/b, 3/c}  {\dfrac{\i}{\j} }$    
+    
+    
+ \foreach \i [ evaluate = \i as \result ] %
+in {1 + 2, 10 * 3, 2^3} %
+{$ \i = \result \quad $} %
+    
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=3]
+\draw [thick, green!40!black ] %
+(0, 0) -- +(0:1 cm) -- +(60:1 cm) -- cycle ;
+\end {tikzpicture}
+
+
+
+
+\caption {a picture in a figure }
+\end {figure}
+
+
+
+\tikz %
+\draw %
+(0, 0) circle [ radius = 5mm ];
+\\[1 em]
+
+\tikz %
+\draw %
+(0, 0) circle %
+[ %
+x radius = 5mm , %
+y radius = 3mm %
+];
+
+
+
+
+\noindent\tikz %
+\draw %
+{ [dashed] (0, 0) -- (1, 0) }
+{ [ rounded corners,very thick,draw=green ] -- (1, 1) } %
+-- (0, 1) -- cycle ; \\[1 em]
+\tikz %
+\draw %
+(0, 0) -- (1, 0) %
+[ color = red ] -- ++(90:1);
+
+\begin{figure}[th]
+    \centering
+    \begin{tikzpicture}[scale=0.2]
+        \draw (5,5) -- ++(1,0) 
+         -- ++ (0,1) -- ++(1,0) rectangle +(-1,0.2) +(0,0) 
+         -- ++ (0,1) -- ++(1,0) rectangle +(-1,0.2) +(0,0) 
+         -- ++ (0,1) -- ++(1,0) rectangle +(-1,0.2) +(0,0) 
+         -- ++ (0,1) -- ++(1,0) rectangle +(-1,0.2) +(0,0) 
+         ; % завершает путь 
+          
+     \end{tikzpicture}
+     \caption{лестница без циклов}
+\end{figure}
+    \begin{figure}[th]
+        \centering
+        \begin{tikzpicture}[scale=0.2]
+        \draw  (5,5) -- ++(1,0) 
+        \foreach \ii in {1,2, ...,10}
+          { -- ++ (0,1) -- ++(1,0) rectangle +(-1,0.2) 
+            +(0,0) 
+          } ;
+      
+        
+        \end{tikzpicture}
+        \caption{Лестница c циклами и прямоугольниками}
+    \end{figure}
+    
+\begin{figure}[th]
+    \centering
+    \begin{tikzpicture}[scale=0.2]
+    \draw (5,5) -- ++(1,0) 
+    -- ++ (0,1) -- ++(1,0) {[rounded corners=1] +(0,0.2) -| +(-1,0)} +(0,0) 
+    -- ++ (0,1) -- ++(1,0) {[rounded corners=2] +(0,0.2) -| +(-1,0)} +(0,0) 
+    
+    -- ++ (0,1) -- ++(1,0) rectangle +(-1,0.2) +(0,0) 
+    -- ++ (0,1) -- ++(1,0) rectangle +(-1,0.2) +(0,0) 
+    -- ++ (0,1) -- ++(1,0) rectangle +(-1,0.2) +(0,0) 
+    ; % завершает путь 
+    
+    \end{tikzpicture}
+    \caption{лестница без циклов с прямоугольными зигзагами}
+\end{figure}
+    
+\begin{figure}[th]
+    \centering
+    \begin{tikzpicture}[scale=1]
+    \draw (5,5) -- ++(2,0) 
+    -- ++ (0,1) -- ++(1,0) {[rounded corners=1] +(0,0.2) -| +(-1,0)} +(0,0) 
+    -- ++ (0,1) -- ++(1,0) {[rounded corners=2] +(0,0.2) -| +(-1,0)} +(0,0) 
+    
+    -- ++ (0,1) -- ++(1,0) rectangle +(-1,0.2) +(-.5,0.5) circle [x radius=4mm, y radius=3mm]    +(0,0) 
+     -- ++ (0,1) -- ++(1,0) rectangle +(-1,0.2) +(-1,0.5) circle [x radius=4mm, y radius=3mm, start angle=-160,end angle=30]    +(0,0) 
+     
+    -- ++ (0,1) -- ++(1,0) rectangle +(-1,0.2) +(0,0) 
+    -- ++ (0,1) -- ++(1,0) rectangle +(-1,0.2) +(0,0) 
+    ; % завершает путь 
+    
+    \end{tikzpicture}
+    \caption{лестница без циклов с прямоугольными зигзагами}
+\end{figure}    
+
+\begin{figure}[th]
+    \centering
+    \begin{tikzpicture}[scale=1,font=\tiny]
+    \path [draw,left color=red,right color=blue,line width=0.7pt] (5,5) -- ++(2,0) node [anchor=south west]{низ}
+    -- ++ (0,1) -- ++(1,0) {[rounded corners=1] +(0,0.2) -| +(-1,0)} +(0,0) 
+    -- ++ (0,1) -- ++(1,0) {[rounded corners=2] +(0,0.2) -| +(-1,0)} +(0,0) 
+    
+    -- ++ (0,1) --   ++(1,0) rectangle  +(-1,0.2) +(-.5,0.5) circle [x radius=4mm, y radius=3mm]    +(0,0) 
+    -- ++ (0,1) -- ++(1,0) grid [ystep=0.6mm] +(-1,0.2) +(-1,0.5) circle [x radius=4mm, y radius=3mm, start angle=-160,end angle=30]    +(0,0) 
+    
+    -- ++ (0,1) -- ++(1,0) grid [xstep=3mm,ystep=0.4mm] +(-1,0.2) +(0,0) 
+    -- ++ (0,1) -- ++(1,0) rectangle node[above]{верх} +(-1,0.2) +(0,0) 
+    ; % завершает путь 
+    
+    \end{tikzpicture}
+    \caption{лестница без циклов с прямоугольными зигзагами}
+\end{figure}    
+
+
+
+\begin{tikzpicture}
+    \draw (1,0) -- (0,0) -- (0,1) ; \draw (0,1) to [bend left=20] (1,0) node[above,sloped]{надпись}  ;
+    
+\end{tikzpicture}
+    
+\end{document}

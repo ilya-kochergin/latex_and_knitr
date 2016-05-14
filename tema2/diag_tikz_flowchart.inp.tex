@@ -1,0 +1,26 @@
+% !TeX root = rand_text_14.tex
+
+\tikzstyle{flownode} = [font=\sffamily,shape=rectangle,rounded corners=10pt, outer sep=1mm, minimum size=2cm,ultra thin,left color=gray!10,right color=cyan!60] 
+
+%\tikzstyle{flowtext} = [sloped,yshift=2mm,font={\small\itshape}] ;
+
+\tikzset{flowtext/.style = {sloped,below,font={\small\itshape} } } 
+
+\begin{tikzpicture}[scale=0.6]
+\node  (Банк) at (0,0) [flownode,right color=green!30] {Банк};
+\node (Завод) [flownode,above = 3cm of Банк, draw]{Завод} ;
+\node (Потребитель) [flownode,left =  2cm of Банк , draw]{Потребитель} ;
+
+
+\draw [-stealth] (Банк)  edge 
+     node  [flowtext] {деньги} 
+         (Завод)
+       (Потребитель)  edge 
+            node  [flowtext]{деньги} 
+                 (Банк) ;
+\draw [stealth-,red]  (Потребитель)  edge 
+node  [flowtext] {материальный поток} 
+(Завод) ;
+                 
+\end{tikzpicture}
+

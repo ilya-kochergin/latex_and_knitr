@@ -1,0 +1,31 @@
+% !TeX program = pdflatex
+% !TeX root = ris2-standalone.tex
+
+
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{tikz}
+\usetikzlibrary{patterns,shapes}
+\begin{document}
+\tikzstyle{format}  = [
+	rounded rectangle,
+	thick,
+	shade,
+	minimum size=0.5cm,
+	pattern=bricks,
+	draw=green!50!red!50!black,
+	right color=red,
+	left color=green,
+	font={\slshape \bfseries}
+]
+\begin{tikzpicture}[rotate=0]
+	\node[format] (rA) at (0:1) {\textcolor{white}{буква А}};
+	\node[format] (rBe) at (120:1) {\textcolor{white}{буква Б}};
+	\node[format] (rVe) at (240:1) {\textcolor{white}{буква В}};
+	\path[green, ultra thick] (rA) edge (rBe);
+	\path[blue, ultra thick] (rBe) edge (rVe);
+	\path[brown, ultra thick] (rVe) edge (rA);
+\end{tikzpicture}
+\end{document}

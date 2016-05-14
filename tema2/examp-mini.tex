@@ -1,0 +1,111 @@
+% будем использвать xelatex как программу 
+% компиляции из latex в pdf
+
+\documentclass{article}
+\usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{minted}   % листинги кода с подсветкой синтаксиса при помощи внешней программы, основанной на Pygments 
+% => при компиляции нужно добавить опцию --shell-escape к командной строке xelatex (pdflatex или lualatex)
+%  -- выдаёт ошибку, если включить пакет после следующего оператора 
+\setmainlanguage[babelshorthands=true]{russian} 
+% это установки к пакету polyglossia
+% 
+% babel shorthands are:
+%  "--- Cyrillic emdash in plain text.
+%  "--~ Cyrillic emdash in compound names (surnames).
+%  "--* Cyrillic emdash for denoting direct speech.
+% "~ неразрывный дефис. Пример: как в 90"~х годах
+\setotherlanguage{english}
+
+
+\defaultfontfeatures{Renderer=Basic, Ligatures=TeX} %лигатуры работают в basic режиме, например, <<кавычки-ёлочки>> или ,,кавычки-лапки``. 
+% \defaultfontfeatures{Scale=MatchLowercase, Mapping=tex-text} 
+
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+
+
+
+\newfontfamily{\cyrillicfont}{Times New Roman}
+\newfontfamily{\cyrillicfonttt}{Courier New} 
+%\newfontfamily{\cyrillicfonttt}{Monaco} % на Маке
+
+
+% \usepackage{tikz}
+% \usetikzlibrary{graphs,shapes,arrows}
+ 
+\author{Илья Кочергин}
+\title{Решение конфликта параметра \textsf{babelshorthands=true} при включении русского языка и пакета для печати программных листингов \textsf{minted} в документе \XeLaTeX{}.    }
+
+
+\begin{document}
+	\maketitle
+	
+	\begin{abstract}
+	     Документ демонстрирует возможность решения конфликта пакета minted и параметра babelshorthands. Ошибка компиляции, которую вызывает сочетание этих установок, может быть устранена путем переноса команды, включающий данных пакет,
+	     \mint{tex}|\usepackage{minted}|
+	      выше по тексту, чем команда \mint{tex}|\setmainlanguage[babelshorthands=true]{russian}|
+	\end{abstract}
+	
+\section{Почему \XeLaTeX а не {\small pdf}\LaTeX{}? }
+	
+Документ скомпилирован при помощи \XeLaTeX. Для компиляции из языка разметки \LaTeX{}  в формат \emph{PDF}  можно было бы использовать классический  {\scriptsize pdf}\LaTeX{} или, наоборот, самый новаторский \LuaLaTeX. Мы выбираем \XeLaTeX{} за 3~достижения:
+
+\begin{enumerate}
+	\item  Полная и встроенная  в систему поддержка употребления многих языков в одном документе и использование кодировки Unicode (UTF"~8).
+	\item  Поддержка шрифтов операционной системы. Можете использовать, например, привычные  \textbf{\rmfamily Times New Roman}, \textbf{\sffamily Arial} и \textbf{\texttt{ Courier New}} как, соответственно, шрифтов с засечками (\textbf{r}o\textbf{m}an "---\textbf{rm}, serif), {\sffamily рубленный (\textbf{s}an seri\textbf{f} "--- sf)} и {\ttfamily моноширинный (monospace, \textbf{t}ele\textbf{t}ype "--- \textbf{tt})}  шрифты. 
+	Напомним стандартные кыоманды для их включения: 
+		\mint{tex}|\textrm{тест}, \textsf{тест}, \texttt{тест}|
+		
+		
+	\item  Быстрая, по сравнению с \LuaLaTeX, компиляция. 
+	
+\end{enumerate}
+
+
+\section{Зачем пакет minted?}
+
+Наиболее продвинутая система подсветки синтаксиса  во фрагментах программного кода использует python-библиотеку Pygments, доступную в  \LaTeX{} посредством пакета \texttt{minted}:
+
+\usemintedstyle{tango}
+
+
+\mint[bgcolor=gray!5]{tex}|$\dfrac{\sin x}{x} $ % --это комментарий  до конца строки|
+
+\bigskip{}
+\medskip
+
+А вот более длинный листинг программного кода 
+
+\begin{minted}[linenos,bgcolor=gray!5!yellow!2,
+   frame=lines, stepnumber=2,tabsize=4,obeytabs=false]{R}
+z <- 5
+while(z >= 3 && z <= 10) {
+   print(z)
+   coin <- rbinom(1, 1, 0.5)
+   if(coin == 1) { # случайное блуждание
+       z <- z + 1
+   } else {
+       z <- z - 1
+   }
+}
+\end{minted} 
+\\
+на языке R.
+
+\section{Зачем сочетания символов в стиле пакета babel?}
+
+Теперь применяем сочетания символов в стиле \textsf{babel}: 
+
+"--* Кавычка и тройное тире  "--- это  <<бабель-идиома>>  для печати тире в стиле русско-немецких типографских традиций.
+
+"--* Ну, ты сказал!  
+
+"--* Это не я сказал. Это "--- Лебедев"--~Щукин.
+
+
+
+\end{document}
